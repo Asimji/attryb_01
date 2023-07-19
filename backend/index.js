@@ -2,6 +2,8 @@ const express=require("express")
 const cors=require("cors");
 const connection = require("./db");
 const userRouter = require("./routes/user.route");
+const OEM_Router = require("./routes/OEM.route");
+const dealerRouter = require("./routes/dealer.route");
 
 require("dotenv").config();
 
@@ -10,6 +12,9 @@ app.use(cors());
 
 app.use(express.json());
 app.use(userRouter)
+app.use(OEM_Router)
+app.use(dealerRouter)
+
 
 app.listen(process.env.port,async()=>{
    try {
