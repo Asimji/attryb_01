@@ -9,7 +9,7 @@ const userRouter=express.Router();
 
 userRouter.post("/signup",async(req,res)=>{
 
-    const {email,password,role}=req.body;
+    const {email,password,role,name}=req.body;
     const existedUser=await userModel.findOne({email})
         if(existedUser){
             console.log(email)
@@ -20,7 +20,7 @@ userRouter.post("/signup",async(req,res)=>{
                 bcrypt.hash(password, 3,async function(err, hash) {
                     // Store hash in your password DB.
                     if(hash){
-                        const user=new userModel({email,password:hash,role});
+                        const user=new userModel({email,password:hash,role,name});
                         await user.save()
                         res.status(200).json({user:req.body,msg:'Successfully Registered'})
                     }

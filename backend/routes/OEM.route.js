@@ -9,11 +9,13 @@ const OEM_Router=express.Router();
 OEM_Router.get("/original",OEM_Dealer_auth,async(req,res)=>{
     try {
         const OEM=await OEM_Model.find()
+   
         res.status(200).json({OEM})
     } catch (error) {
         res.status(400).json({error:error.message})
     }
 })
+
 
 OEM_Router.post("/original/add",OEM_auth,async(req,res)=>{
     try {

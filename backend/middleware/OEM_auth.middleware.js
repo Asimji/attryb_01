@@ -12,6 +12,7 @@ const OEM_auth=async (req,res,next)=>{
             }
             else{
                 var decoded = jwt.verify(token, process.env.secretKey);
+         
             if(decoded.user.role==='OEM'){
                 next()
             }

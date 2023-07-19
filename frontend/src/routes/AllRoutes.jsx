@@ -4,6 +4,8 @@ import HomePage from '../component/HomePage'
 import Login from '../component/Login'
 import PrivateRoute from './PrivateRoute'
 import Register from '../component/Register'
+import OEM from '../component/OEM'
+import AddDealer from '../component/AddDealer'
 
 
 
@@ -17,6 +19,8 @@ const AllRoutes = () => {
       }/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
+      <Route path='/original' element={<OEM/>}/>
+      <Route path='/dealer/add' element={<AddDealer/>}/>
     </Routes>
   )
 }

@@ -1,5 +1,6 @@
 const blacklist = require("../blacklist");
 const jwt=require("jsonwebtoken")
+
 require("dotenv").config()
 
 const OEM_Dealer_auth=async (req,res,next)=>{
@@ -12,7 +13,8 @@ const OEM_Dealer_auth=async (req,res,next)=>{
             }
             else{
                 var decoded = jwt.verify(token, process.env.secretKey);
-            if(decoded.user.role==='OEM' || decoded.user.role==="Car Dealer"){
+                
+            if(decoded.user.role==='OEM' || decoded.user.role==="Car_Dealer"){
                 next()
             }
             else{

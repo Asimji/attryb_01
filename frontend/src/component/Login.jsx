@@ -1,13 +1,12 @@
 import { Box, Button, Flex, Heading, Image, Input, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { postLogin } from '../redux/authReducer/action'
 
 const Login = () => {
     const[user,setUser]=useState({email:"",password:""})
 
-    const store=useSelector(store=>console.log(store))
     const dispatch=useDispatch()
 
     const handleClick=()=>{
@@ -34,7 +33,7 @@ dispatch(postLogin(user))
            <Button w='100%' onClick={handleClick} >Sign In</Button>
            <Flex gap={'20vh'} mt={'2vh'}>
            <Text>Not a User!! <Link color='red' to={'/register'}>SignUp</Link></Text>
-           <Link>Home</Link>
+           <Link to='/'>Home</Link>
            </Flex>
          </Flex>
        </Box>

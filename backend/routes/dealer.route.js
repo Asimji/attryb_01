@@ -22,7 +22,7 @@ dealerRouter.post("/dealer/post",async(req,res)=>{
     try {
         const data=new dealerModel(req.body)
         await  data.save()
-        res.status(200).json({data})
+        res.status(200).json({data,msg:"Data Added Successfully"})
     } catch (error) {
         res.status(400).json({error:error.message})
     }
